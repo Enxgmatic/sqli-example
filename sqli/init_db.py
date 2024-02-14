@@ -1,6 +1,14 @@
 import sqlite3
 
 conn = sqlite3.connect("database.db")
+
+conn.execute("""CREATE TABLE flaggy_table (
+  id TEXT NOT NULL UNIQUE,
+  flag_value TEXT NOT NULL
+);""")
+
+conn.execute("INSERT INTO flaggy_table VALUES ('0','IRS{sql_m45t3r}')")
+
 conn.execute("""CREATE TABLE users (
   username TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL
@@ -16,13 +24,6 @@ users = [
 ]
 
 conn.executemany("INSERT INTO users VALUES (?, ?)", users)
-
-conn.execute("""CREATE TABLE flaggy_table (
-  id TEXT NOT NULL UNIQUE,
-  flag_value TEXT NOT NULL
-);""")
-
-conn.execute("INSERT INTO flaggy_table VALUES ('0','IRS{'sql_m45t3r'}')")
 
 conn.commit()
 conn.close()

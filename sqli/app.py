@@ -19,13 +19,13 @@ def login(username,password):
             return f'Login unsuccessful. Error attained: {e}', query
         except:
             return f'Login unsuccessful. Error attained.', query
-    
+
     # if the username and password checks out, login successful
     # give flag to admin
     if found:
         if found[0] == 'admin':
-            return f'Welcome back admin, here is the flag: {flag}', query
-        return f'Login sucessful, welcome back {found[0]}!', query
+            return f'Welcome back {found[0]}, here is the flag: {flag}', query
+        return f'Login sucessful, welcome back {found}!', query
 
     # if login unsuccessful
     return 'Login unsuccessful', query
