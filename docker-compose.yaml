@@ -1,0 +1,7 @@
+version: "3"
+services:
+  #web
+  sqli:
+    build: sqli
+    ports:
+      - "26660:8000"
